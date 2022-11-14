@@ -3,10 +3,14 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST','GET'])
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/login', methods=['POST','GET'])
 def index():
   if request.method == 'POST':
-    return render_template('results.html')
+    return render_template('index.html')
   
   else:
     return render_template('index.html')
